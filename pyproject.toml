@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chess-move-formatter"
+version = "0.1.0"
+description = "Strict-by-default formatter for chess move notation (SAN)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "alvarez-lab" }]
+
+[project.scripts]
+chessfmt = "chessfmt.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["chessfmt*"]
