@@ -67,9 +67,15 @@ both modes.
 
 ## Status
 
-Early skeleton: single-move and whole-game text normalization work, but
-there's no board-state tracking yet, so moves are checked for shape, not
-legality. See the roadmap in the project notes for what's next.
+Single-move normalization (`--move`) checks shape only - it has no board to
+check a move against, so it will format "Bb5" happily even if no bishop
+could reach b5. Whole-game normalization now tracks board state move by
+move and rejects moves that are shaped like SAN but aren't legal there: no
+piece of that kind can reach the square, the path is blocked, a capture was
+claimed against an empty square (or vice versa), or a pawn reached the last
+rank without promoting. It does not yet check whether a move leaves the
+mover's own king in check, or verify checkmate/stalemate - see the roadmap
+in the project notes for what's next.
 
 ## Installing
 
